@@ -1,0 +1,49 @@
+<div id="top-nav">
+    <img 
+      src="https://angular.io/assets/images/logos/angular/angular.png" 
+      width='50px' 
+      height="50px"
+      (click)="onClickLogo()"/>
+    <a 
+      href="#"
+      (click)="onClickMyCart()">My Cart</a>
+  </div>
+  <div id="container">
+    <h3>Total Price: RM {{totalPrice()}}</h3>
+    <ul id="product-list" *ngIf="isMyCart === false">
+      <li *ngFor="let product of filteredProductList(); let i = index" class="product-item"
+      [class.selected]="product.selected === true">
+        <img src="{{product.image}}" width="75px" height="75px"/>
+        <div>
+          <h4>{{product.id}} </h4>
+          <p>{{product.description}}</p>
+          <p>{{product.price}}</p>
+          <div>
+            <button (click)="onClickMinus(i)">-</button>
+            <span>{{product.quantity}}</span>
+            <button (click)="onClickAdd(i)">+</button>
+          </div>
+          <button (click)="onClickSelect(i)">Select</button>
+        </div>
+      </li>
+    </ul>
+    <ul id="mycart-list" *ngIf="isMyCart === true">
+      <li *ngFor="let product of myCart; let i = index" class="product-item"
+      [class.selected]="product.selected === true">
+        <img src="{{product.image}}" width="75px" height="75px"/>
+        <div>
+          <h4>{{product.id}} </h4>
+          <p>{{product.description}}</p>
+          <p>{{product.price}}</p>
+          <div>
+            <span>{{product.quantity}}</span>
+          </div>
+          <button (click)="onClickRemove(i)">Remove</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="footer">
+    <button (click)="onClickClear()">Clear My Cart</button>
+    <button (click)="onClickAddToMyCart()">Add to My Cart</button>
+  </div>

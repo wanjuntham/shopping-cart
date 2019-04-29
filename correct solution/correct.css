@@ -1,0 +1,32 @@
+#top-nav {
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .product-item {
+    display: flex;
+    justify-content: flex-start;
+  
+    list-style: none;
+  
+    border: solid 1px black;
+  }
+  
+  .product-item.selected {
+    background-color: yellow;
+  }
+  
+  #footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  #footer button {
+    width: 50%;
+    height: 50px;
+  }
+  
